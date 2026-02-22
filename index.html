@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>CrackedAmazon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: #0f172a;
+            color: #fff;
+            padding: 12px;
+        }
+        
+        /* Header - Mobile First */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .logo-icon {
+            font-size: 24px;
+            color: #f97316;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .search-icon {
+            background: #1e293b;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        
+        /* Search Bar */
+        .search-box {
+            background: #1e293b;
+            border-radius: 30px;
+            padding: 12px 18px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #334155;
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            width: 100%;
+            font-size: 15px;
+            outline: none;
+        }
+        
+        .search-box input::placeholder {
+            color: #64748b;
+        }
+        
+        /* Categories Scroll */
+        .categories {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category {
+            background: #1e293b;
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            border: 1px solid #334155;
+        }
+        
+        .category.active {
+            background: #f97316;
+            color: #0f172a;
+            border-color: #f97316;
+        }
+        
+        /* Hero Banner - Mobile */
+        .hero {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: #0f172a;
+        }
+        
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #0f172a;
+            opacity: 0.9;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #0f172a;
+            opacity: 0.8;
+        }
+        
+        /* Flash Deals - Mobile */
+        .flash-deals {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #f97316;
+        }
+        
+        .flash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .flash-title {
+            color: #f97316;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .flash-timer {
+            background: #334155;
+            padding: 6px 15px;
+            border-radius: 30px;
+            color: #f97316;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        
+        /* Horizontal Scroll for Flash Deals */
+        .flash-grid {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        
+        .flash-grid::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .flash-card {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 15px;
+            min-width: 160px;
+            border: 1px solid #334155;
+        }
+        
+        .flash-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .flash-title-small {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .flash-price {
+            color: #f97316;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        
+        .flash-btn {
+            background: #f97316;
+            color: #0f172a;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 13px;
+            width: 100%;
+        }
+        
+        /* Section Title - Mobile */
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 12px;
+        }
+        
+        .section-title h2 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .section-title a {
+            color: #f97316;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        
+        /* Tools Grid - 2 Columns for Mobile */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .tool-card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 15px 12px;
+            border: 1px solid #334155;
+        }
+        
+        .tool-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .tool-title {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+        
+        .tool-category {
+            color: #f97316;
+            font-size: 10px;
+            background: rgba(249, 115, 22, 0.1);
+            padding: 3px 8px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        
+        .tool-description {
+            color: #94a3b8;
+            font-size: 11px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .tool-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 10px;
+            padding: 8px 0;
+            border-top: 1px solid #334155;
+            margin: 8px 0;
+        }
+        
+        .tool-rating {
+            color: #f97316;
+        }
+        
+        .tool-price {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 8px 0;
+        }
+        
+        .current-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f97316;
+        }
+        
+        .old-price {
+            font-size: 12px;
+            color: #64748b;
+            text-decoration: line-through;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #f97316, #ef4444);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            width: 100%;
+        }
+        
+        .live-count {
+            color: #10b981;
+            font-size: 10px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        /* Categories Grid - 4 Columns for Mobile */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .category-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 12px 5px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .category-name {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .category-count {
+            color: #94a3b8;
+            font-size: 9px;
+        }
+        
+        /* Footer - Mobile */
+        .footer {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .footer-title {
+            color: #f97316;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 11px;
+        }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #334155;
+            border-top-color: #f97316;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #fff;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Preparing download...</div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">CrackedAmazon</span>
+        </div>
+        <div class="search-icon">🔍</div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Search 1,500+ tools...">
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <span class="category active">🔥 All</span>
+        <span class="category">💰 Payment</span>
+        <span class="category">🎮 Aviator</span>
+        <span class="category">📱 SMS</span>
+        <span class="category">🔓 Accounts</span>
+        <span class="category">🇺🇸 USA</span>
+        <span class="category">🎣 Phishing</span>
+        <span class="category">⚽ Betting</span>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero">
+        <h1>🔥 ALL TOOLS FREE</h1>
+        <p>50,000+ members • Instant download</p>
+        <div class="hero-stats">
+            <div><span class="stat-number">1,547</span><br><span class="stat-label">Tools</span></div>
+            <div><span class="stat-number">50k+</span><br><span class="stat-label">Users</span></div>
+            <div><span class="stat-number">2.3M</span><br><span class="stat-label">D/L</span></div>
+        </div>
+    </div>
+
+    <!-- Flash Deals -->
+    <div class="flash-deals">
+        <div class="flash-header">
+            <span class="flash-title">⚡ FLASH DEALS</span>
+            <span class="flash-timer" id="timer">10:00</span>
+        </div>
+        <div class="flash-grid">
+            <div class="flash-card" onclick="downloadTool('aviator-pro')">
+                <div class="flash-icon">🎮</div>
+                <div class="flash-title-small">Aviator Pro</div>
+                <div class="flash-price">FREE</div>
+                <button class="flash-btn">GRAB</button>
+            </div>
+            <div class="flash-card" onclick="downloadTool('opay-gold')">
+                <div class="flash-icon">💰</div>
+                <div class="flash-title-small">Opay Gold</div>
+                <div class="flash-price">FREE</div>
+                <button class="flash-btn">GRAB</button>
+            </div>
+            <div class="flash-card" onclick="downloadTool('fb-cloner')">
+                <div class="flash-icon">👥</div>
+                <div class="flash-title-small">FB Cloner</div>
+                <div class="flash-price">FREE</div>
+                <button class="flash-btn">GRAB</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Hackers -->
+    <div class="section-title">
+        <h2>💰 Payment Hackers</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('opay-cracked')">
+            <div class="tool-icon">💰</div>
+            <div class="tool-title">Opay Cracked v3.2</div>
+            <span class="tool-category">Payment</span>
+            <div class="tool-description">Transfer any amount, no balance</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>2.4k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$299</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('palmpay-cracker')">
+            <div class="tool-icon">💳</div>
+            <div class="tool-title">Palmpay Cracker</div>
+            <span class="tool-category">Payment</span>
+            <div class="tool-description">Generate credit instantly</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>1.9k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$249</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('gtbank-exploit')">
+            <div class="tool-icon">🏦</div>
+            <div class="tool-title">GTBank Cracker</div>
+            <span class="tool-category">Banking</span>
+            <div class="tool-description">Access any GTBank account</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>890</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$199</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('paypal-balance')">
+            <div class="tool-icon">💵</div>
+            <div class="tool-title">PayPal Checker</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Check any PayPal balance</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>2.1k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$349</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- Aviator & Betting -->
+    <div class="section-title">
+        <h2>🎮 Aviator & Betting</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('aviator-shooter')">
+            <div class="tool-icon">🎮</div>
+            <div class="tool-title">Aviator Shooter</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Know exact cashout time</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>4.2k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$499</span></div>
+            <button class="download-btn">Get</button>
+            <div class="live-count">⚡ 567 now</div>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('sportybet-double')">
+            <div class="tool-icon">⚽</div>
+            <div class="tool-title">SportyBet Double</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Hit double odds every time</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>2.8k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$349</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('bet9ja-predictor')">
+            <div class="tool-icon">🎯</div>
+            <div class="tool-title">Bet9ja Predictor</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">92% accuracy</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.1k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$249</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('aviator-signal')">
+            <div class="tool-icon">📊</div>
+            <div class="tool-title">Signal Generator</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Real-time cashout signals</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>2.8k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$299</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- Account Hackers -->
+    <div class="section-title">
+        <h2>🔓 Account Hackers</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('facebook-hacker')">
+            <div class="tool-icon">👥</div>
+            <div class="tool-title">FB Hacker v5.0</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Clone any account</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>5.6k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$399</span></div>
+            <button class="download-btn">Get</button>
+            <div class="live-count">⚡ 789 now</div>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('instagram-hacker')">
+            <div class="tool-icon">📷</div>
+            <div class="tool-title">IG Password Finder</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Get any IG password</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>3.4k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$299</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('gmail-cracker')">
+            <div class="tool-icon">📧</div>
+            <div class="tool-title">Gmail Cracker</div>
+            <span class="tool-category">Email</span>
+            <div class="tool-description">10M password wordlist</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.9k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$249</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('whatsapp-stealer')">
+            <div class="tool-icon">💬</div>
+            <div class="tool-title">WhatsApp Stealer</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Read any chat remotely</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.3k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$199</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- SMS & Phone Tools -->
+    <div class="section-title">
+        <h2>📱 SMS & Phone</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('usa-numbers')">
+            <div class="tool-icon">🇺🇸</div>
+            <div class="tool-title">USA Numbers</div>
+            <span class="tool-category">Numbers</span>
+            <div class="tool-description">Real USA numbers</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>3.1k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$199</span></div>
+            <button class="download-btn">Get</button>
+            <div class="live-count">⚡ 445 now</div>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('sms-bomber')">
+            <div class="tool-icon">💣</div>
+            <div class="tool-title">SMS Bomber Pro</div>
+            <span class="tool-category">Harassment</span>
+            <div class="tool-description">5000 SMS per minute</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>5.2k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$149</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('call-bomber')">
+            <div class="tool-icon">📞</div>
+            <div class="tool-title">Call Bomber</div>
+            <span class="tool-category">Harassment</span>
+            <div class="tool-description">1000 calls per hour</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>3.1k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$129</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('sim-swap')">
+            <div class="tool-icon">🔄</div>
+            <div class="tool-title">SIM Swap Tool</div>
+            <span class="tool-category">Phone</span>
+            <div class="tool-description">Take over any number</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>1.8k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$399</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- Phishing Kits -->
+    <div class="section-title">
+        <h2>🎣 Phishing Kits</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('phishing-templates')">
+            <div class="tool-icon">🎣</div>
+            <div class="tool-title">100+ Templates</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Bank, Gmail, PayPal clones</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>4.1k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$299</span></div>
+            <button class="download-btn">Get</button>
+            <div class="live-count">⚡ 345 now</div>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('fake-id')">
+            <div class="tool-icon">🆔</div>
+            <div class="tool-title">Fake ID Pro</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Passports, licenses, NIN</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>3.8k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$249</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('sms-spoofer')">
+            <div class="tool-icon">📨</div>
+            <div class="tool-title">SMS Spoofer</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Send as any sender</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.2k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$199</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('email-sender')">
+            <div class="tool-icon">✉️</div>
+            <div class="tool-title">Fake Email</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Send as any company</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.7k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$149</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- USA Tools -->
+    <div class="section-title">
+        <h2>🇺🇸 USA Tools</h2>
+        <a href="#">View all →</a>
+    </div>
+
+    <div class="tools-grid">
+        <div class="tool-card" onclick="downloadTool('ssn-generator')">
+            <div class="tool-icon">🔢</div>
+            <div class="tool-title">SSN Generator</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Real-looking SSNs</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐⭐</span> <span>3.2k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$299</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('credit-card-gen')">
+            <div class="tool-icon">💳</div>
+            <div class="tool-title">CC Generator</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Valid card numbers</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>2.8k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$199</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('amazon-gift')">
+            <div class="tool-icon">🎁</div>
+            <div class="tool-title">Amazon Gift</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Generate gift cards</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>3.4k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$149</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+
+        <div class="tool-card" onclick="downloadTool('bank-america')">
+            <div class="tool-icon">🏦</div>
+            <div class="tool-title">BofA Cracker</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Access any account</div>
+            <div class="tool-meta"><span class="tool-rating">⭐⭐⭐⭐</span> <span>1.9k</span></div>
+            <div class="tool-price"><span class="current-price">FREE</span> <span class="old-price">$349</span></div>
+            <button class="download-btn">Get</button>
+        </div>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="categories-grid">
+        <div class="category-card"><div class="category-icon">💰</div><div class="category-name">Payment</div><div class="category-count">47</div></div>
+        <div class="category-card"><div class="category-icon">🎮</div><div class="category-name">Aviator</div><div class="category-count">89</div></div>
+        <div class="category-card"><div class="category-icon">📱</div><div class="category-name">SMS</div><div class="category-count">23</div></div>
+        <div class="category-card"><div class="category-icon">🇺🇸</div><div class="category-name">USA</div><div class="category-count">156</div></div>
+        <div class="category-card"><div class="category-icon">🔓</div><div class="category-name">Accounts</div><div class="category-count">112</div></div>
+        <div class="category-card"><div class="category-icon">🎣</div><div class="category-name">Phishing</div><div class="category-count">43</div></div>
+        <div class="category-card"><div class="category-icon">💳</div><div class="category-name">CC</div><div class="category-count">34</div></div>
+        <div class="category-card"><div class="category-icon">🔐</div><div class="category-name">Passwords</div><div class="category-count">67</div></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-title">CrackedAmazon</div>
+                <ul class="footer-links">
+                    <li>About Us</li>
+                    <li>How to Download</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Categories</div>
+                <ul class="footer-links">
+                    <li>Payment Hacks</li>
+                    <li>Aviator Tools</li>
+                    <li>USA Numbers</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Community</div>
+                <ul class="footer-links">
+                    <li>Telegram (45k)</li>
+                    <li>WhatsApp</li>
+                    <li>Discord</li>
+                </ul>
+            </div>
+            <div>
+                <div class="footer-title">Live</div>
+                <ul class="footer-links">
+                    <li>🟢 3,421 online</li>
+                    <li>📥 12k today</li>
+                    <li>👥 50k members</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            ⚡ CrackedAmazon • Since 2023
+        </div>
+    </div>
+
+    <script>
+        function startTimer() {
+            let time = 600;
+            const timer = document.getElementById('timer');
+            setInterval(() => {
+                const mins = Math.floor(time / 60);
+                const secs = time % 60;
+                timer.textContent = `${mins}:${secs.toString().padStart(2,'0')}`;
+                if(time > 0) time--;
+            }, 1000);
+        }
+
+        function downloadTool(tool) {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = `/auth/google?tool=${tool}`;
+            }, 1500);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.tool-card').forEach(card => {
+                const text = card.textContent.toLowerCase();
+                card.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        });
+
+        startTimer();
+    </script>
+</body>
+</html>
